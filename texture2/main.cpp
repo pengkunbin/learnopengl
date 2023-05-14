@@ -51,7 +51,7 @@ void initTriangleShader(unsigned int &shaderProgram, unsigned int &VAO)
                                        "uniform sampler2D ourTexture;\n"
                                        "void main()\n"
                                        "{\n"
-                                       "   FragColor = texture(ourTexture, TexCoord);\n"
+                                       "   FragColor = texture(ourTexture, TexCoord) * vec4(ourColor, 1.0);\n"
                                        "}\0";
     unsigned int fragmentShader;
     fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
