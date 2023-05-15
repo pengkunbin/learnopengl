@@ -52,7 +52,7 @@ void initTriangleShader(unsigned int &shaderProgram, unsigned int &VAO)
                                        "uniform sampler2D texture2;\n"
                                        "void main()\n"
                                        "{\n"
-                                       "    FragColor = (texture(texture1, TexCoord) + texture(texture2, TexCoord));\n"
+                                       "    FragColor = (texture(texture1, TexCoord) * 0.5 + texture(texture2, TexCoord)) * 0.5;\n"
                                        "}\0";
     unsigned int fragmentShader;
     fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
@@ -121,7 +121,7 @@ void initTriangleShader(unsigned int &shaderProgram, unsigned int &VAO)
 }
 
 // 加载纹理
-void initTexture(unsigned int texture1, unsigned int texture2)
+void initTexture(unsigned int &texture1, unsigned int &texture2)
 {
     glGenTextures(1, &texture1);
     glBindTexture(GL_TEXTURE_2D, texture1);
